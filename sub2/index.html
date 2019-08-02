@@ -1,0 +1,20 @@
+<!-- see:https://www.nishishi.com/javascript-tips/confirm-dialog.html -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript OK Cancel</title>
+<script>
+function MoveCheck() {
+  if (confirm("May I move?")) {
+    window.location.href = "https://www.nishishi.com/";
+  }
+  else {
+    alert("Stopped moving")
+  }
+}
+</script>
+</head>
+<body>
+<input type="button" value="Want to move?" onclick="MoveCheck();">
+</body>
+</html>
