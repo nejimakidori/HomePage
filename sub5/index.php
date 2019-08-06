@@ -7,7 +7,6 @@
 
     // 東京の天気
     $url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010";
-    //$url = "https://qiita.com/api/v2/items";
 
     // cURLセッションを初期化
     $ch = curl_init();
@@ -19,28 +18,18 @@
 
     // URLの情報を取得
     $response =  curl_exec($ch);
-
-    // 取得結果を表示
-    //echo $response;
     $result = json_decode($response, true);
-    foreach($result as $key => $value) {
-      if (gettype($value) == 'array') {
-        foreach($value as $key2 => $value2) {
-          if (gettype($value2) == 'array') {
-            foreach($value2 as $key3 => $value3) {
-              echo "{$key3} => {$value3} ";
-              echo '<br>';
-            }
-          } else {
-            echo "{$key2} => {$value2} ";
-            echo '<br>';
-          }
-        }
-      } else {
-        echo "{$key} => {$value} ";
-        echo '<br>';
-      }
-    }
+
+    // Get Tokyo weather
+    // see:http://weather.livedoor.com/weather_hacks/webservice
+    echo $result['title'];
+    echo '<br>';
+    echo $result['description']['text'];
+    echo '<br>';
+    echo $result['copyright']['link'];
+    echo '<br>';
+    echo $result['copyright']['title'];
+    echo '<br>';
 
     // セッションを終了
     curl_close($ch);
