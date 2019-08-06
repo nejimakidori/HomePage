@@ -6,3 +6,13 @@ try {
   print "接続エラー:{$e->getMessage()}";
 }
 ?>
+
+<?php
+  foreach($pdo->query('select name,description,score from favorites') as $row) {
+    echo '<p>';
+    echo $row ['name'], ':';
+    echo $row ['description'], ':';
+    echo $row ['score'];
+    echo '</p>';
+}
+?>
