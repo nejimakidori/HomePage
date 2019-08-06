@@ -1,11 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>天気予報</title>
+  </head>
   <body>
   <?php
     //
     // see : https://www.marineroad.com/staff-blog/18954.html
     // 
 
-    // 東京の天気
+    // Get Tokyo weather
+    // see:http://weather.livedoor.com/weather_hacks/webservice
     $url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=130010";
 
     // cURLセッションを初期化
@@ -19,20 +25,27 @@
     // URLの情報を取得
     $response =  curl_exec($ch);
     $result = json_decode($response, true);
-
-    // Get Tokyo weather
-    // see:http://weather.livedoor.com/weather_hacks/webservice
-    echo $result['title'];
-    echo '<br>';
-    echo $result['description']['text'];
-    echo '<br>';
-    echo $result['copyright']['link'];
-    echo '<br>';
-    echo $result['copyright']['title'];
-    echo '<br>';
-
+    
     // セッションを終了
     curl_close($ch);
   ?>
+  <table border="1">
+    <tr>
+      <td>地域</td>
+      <td><?php echo $result['title'] ?></td>
+    </tr>
+    <tr>
+      <td>内容</td>
+      <td><?php echo $result['description']['text'] ?></td>
+    </tr>
+    <tr>
+      <td>copyright</td>
+      <td><?php echo $result['copyright']['link'] ?></td>
+    </tr>
+    <tr>
+      <td>copyright</td>
+      <td><?php echo $result['copyright']['title'] ?></td>
+    </tr>
+  </table>
   </body>
 </html>
