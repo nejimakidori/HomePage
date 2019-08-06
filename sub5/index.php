@@ -25,11 +25,15 @@
     // URLの情報を取得
     $response =  curl_exec($ch);
     $result = json_decode($response, true);
-    
+
     // セッションを終了
     curl_close($ch);
   ?>
   <table border="1">
+    <tr>
+      <td>時刻</td>
+      <td><?php echo substr($result['description']['publicTime'], 0, 10) . ' ' . substr($result['description']['publicTime'], 11, 8) ?></td>
+    </tr>
     <tr>
       <td>地域</td>
       <td><?php echo $result['title'] ?></td>
