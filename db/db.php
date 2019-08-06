@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Favorites</title>
+</head>
+<body>
 <?php
 try {
   $pdo = new PDO ('mysql:dbname=mf; charset=utf8', 'root', 'yoro12');
@@ -16,3 +23,5 @@ try {
     echo '</p>';
 }
 ?>
+</body>
+</html>
