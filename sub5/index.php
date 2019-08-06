@@ -50,6 +50,10 @@
       <td>copyright</td>
       <td><?php echo $result['copyright']['title'] ?></td>
     </tr>
+    <tr>
+      <td>copyright</td>
+      <td><img src="<?php echo $result['copyright']['image']['url'] ?>" alt="copyright"></td>
+    </tr>
   </table>
   </body>
 </html>
