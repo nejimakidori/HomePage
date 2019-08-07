@@ -9,7 +9,7 @@
 require_once dirname(__FILE__) . '/../../DSN.php';
 
 try {
-  $pdo = new PDO("mysql:dbname=$dsn[dbname]; charset=utf8", $dsn['user'], $dsn['user']);
+  $pdo = new PDO("mysql:dbname=$dsn[dbname]; charset=utf8", $dsn['user'], $dsn['pass']);
   print '接続に成功しました。';
 } catch(PDOException $e) {
   print "接続エラー:{$e->getMessage()}";
