@@ -23,6 +23,9 @@ try {
 ?>
 
 <?php
+  // 
+  // see:https://www.flatflag.nir87.com/insert-942
+  // 
   // INSERT文を変数に格納
   $sql = "insert into things (name) values (:name)";
 
