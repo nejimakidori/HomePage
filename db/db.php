@@ -6,10 +6,12 @@
 </head>
 <body>
 <?php
+require_once dirname(__FILE__) . '/../../DSN.php';
+
 try {
-  $pdo = new PDO ('mysql:dbname=mf; charset=utf8', 'root', 'yoro12');
+  $pdo = new PDO("mysql:dbname=$dsn[dbname]; charset=utf8", $dsn['user'], $dsn['user']);
   print '接続に成功しました。';
-} catch (PDOException $e) {
+} catch(PDOException $e) {
   print "接続エラー:{$e->getMessage()}";
 }
 ?>
