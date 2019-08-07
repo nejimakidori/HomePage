@@ -1,0 +1,4 @@
+AuthType     Basic
+AuthName     "TEST WEB"
+AuthUserFile /var/www/html/HomePage/Basic/.htpasswd
+require valid-user
