@@ -1,3 +1,31 @@
+<?php
+// セッション開始
+session_start();
+
+$db['host'] = "localhost";  // DBサーバのURL
+$db['user'] = "hogeUser";  // ユーザー名
+$db['pass'] = "hogehoge";  // ユーザー名のパスワード
+$db['dbname'] = "loginManagement";  // データベース名
+
+// エラーメッセージの初期化
+$errorMessage = "";
+
+// ログインボタンが押された場合
+if (isset($_POST["login"])) {
+    // 1. ユーザIDの入力チェック
+    if (empty($_POST["userid"])) {  // emptyは値が空のとき
+        $errorMessage = 'ユーザーIDが未入力です。';
+    } else if (empty($_POST["password"])) {
+        $errorMessage = 'パスワードが未入力です。';
+    }
+
+    if (!empty($_POST["userid"]) && !empty($_POST["password"])) {
+        // 入力したユーザIDを格納
+        $userid = $_POST["userid"];
+    }
+}
+?>
+
 <!doctype html>
 <html>
     <head>
