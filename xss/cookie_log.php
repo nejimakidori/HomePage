@@ -1,6 +1,10 @@
 <?php
 $s = serialize(@$_GET['cookie']);
-echo $s . "\n";
-echo md5($s) . "\n";
-$ret = file_put_contents('./cookie_log/' . md5($s), $s);
-echo $ret;
+print $s;
+print md5($s);
+try {
+    $ret = file_put_contents('./cookie_log/' . md5($s), $s);
+    print $ret;
+  } catch(PDOException $e) {
+    print "エラー:{$e->getMessage()}";
+  }
