@@ -1,0 +1,39 @@
+@charset "utf-8";
+.list-review-output {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin-top: 2em;
+}
+.list-review-output .ttl {
+  width: 5em;
+}
+.list-review-output .data {
+  width: calc(100% - 5em);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* レート */
+.list-review-output::before {
+  position: absolute;
+  top: -1.4em;
+  left: 0;
+  color: gray;
+}
+.list-review-output[data-rate='1']::before {
+  content: "★";
+}
+.list-review-output[data-rate='2']::before {
+  content: "★★";
+}
+.list-review-output[data-rate='3']::before {
+  content: "★★★";
+}
+.list-review-output[data-rate='4']::before {
+  content: "★★★★";
+}
+.list-review-output[data-rate='5']::before {
+  content: "★★★★★";
+}
